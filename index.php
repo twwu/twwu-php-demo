@@ -43,9 +43,10 @@
         }
 
 
-        $currentObj = new $classname();
+        $currentObj = new $classname($content);
         //echo "classname=$classname,action=$action,params=".$content."<br/>";
-        call_user_func([$currentObj,$action],$content);
+        $response = call_user_func([$currentObj,$action]);
+        echo $response;
     }catch (Exception $e){
         var_dump($e->getMessage());
     }
